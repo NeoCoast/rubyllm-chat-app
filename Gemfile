@@ -63,3 +63,5 @@ group :test do
 end
 
 gem "ruby_llm", "~> 1.2"
+
+gem "dartsass-rails", "~> 0.5.1"

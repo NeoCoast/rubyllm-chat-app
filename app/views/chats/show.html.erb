@@ -1,0 +1,24 @@
+<%= turbo_stream_from [chat, "messages"] %>
+<div class="chat-container" data-controller="chat">
+  <div class="chat-header">
+    <h1><%= welcome_message %></h1>
+  </div>
+  
+  <div class="messages-container" id="messages" data-chat-target="messagesContainer">
+    <div class="empty-state">
+      <%= image_tag "chat-icon.svg", class: "empty-state-icon" %>
+      <p>No messages yet. Start the conversation!</p>
+    </div>
+    <%= render chat.messages %>
+  </div>
+
+  <%= form_with(url: chat_messages_path(chat), method: :post, class: "message-form", data: { chat_target: "form" }) do |f| %>
+    <%= f.text_area :content, 
+        placeholder: "Type your message here... (Press Enter to send, Shift+Enter for new line)", 
+        rows: 1,
+        data: { action: "keydown->chat#handleKeyDown" } %>
+    <button type="submit" class="send-button">
+      <%= image_tag "send-icon.svg", class: "send-icon" %>
+    </button>
+  <% end %>
+</div>

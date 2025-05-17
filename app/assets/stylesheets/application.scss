@@ -8,3 +8,11 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+@use "chat" as *;
+@use "colors" as *;
+
+body {
+  background-color: $dark-bg;
+  margin: 0;
+}
