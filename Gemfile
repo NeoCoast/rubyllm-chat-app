@@ -62,6 +62,6 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "ruby_llm", "~> 1.2"
+gem "ruby_llm", "~> 1.5"
 
 gem "dartsass-rails", "~> 0.5.1"
